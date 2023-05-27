@@ -31,15 +31,24 @@ operacion_t BuscarOperacion(calculadora_t calculadora, char operador);
 /************************************* FUNCTION DEFINES *******************************************/
 operacion_t BuscarOperacion(calculadora_t calculadora, char operador) {
     operacion_t result = NULL;
-    for(operacion_t actual = calculadora->operaciones; actual != NULL; actual = actual->siguiente){
-        if(actual->operador == operador){
+
+    operacion_t actual;
+    actual = calculadora->operaciones;
+    while (actual != NULL) {
+        if (actual->operador == operador) {
             result = actual;
             break;
         }
+        actual = actual->siguiente;
     }
+
     return result;
 }
 
+/// @brief busca un lugar de memoria para localizar la estructura y si encuentra el lugar lo
+/// inicializa en cero
+/// @param  ningun parámetro
+/// @return un puntero
 calculadora_t CrearCalculadora(void) {
     calculadora_t result;
     result = malloc(sizeof(struct calculadora_s));
@@ -51,7 +60,7 @@ calculadora_t CrearCalculadora(void) {
 }
 
 bool AgregarOperacion(calculadora_t calculadora, char operador, funcion_t funcion) {
-    
+
     operacion_t operacion = NULL;
 
     if (!BuscarOperacion(calculadora, operador)) {
@@ -66,13 +75,13 @@ bool AgregarOperacion(calculadora_t calculadora, char operador, funcion_t funcio
     return (operacion != NULL);
 }
 
-int Calcular(calculadora_t calculadora, char * cadena) {
+int Calcular(calculadora_t calculadora, char *cadena) {
     int a, b;
     char operador;
     int result = 0;
 
-    for(int indice = 0; indice < strlen(cadena); indice++){
-        if(cadena[indice] < '0'){
+    for (int indice = 0; indice < strlen(cadena); indice++) {
+        if (cadena[indice] < '0') {
             operador = cadena[indice];
             a = atoi(cadena);
             b = atoi(cadena + indice + 1);
@@ -87,4 +96,3 @@ int Calcular(calculadora_t calculadora, char * cadena) {
 
     return result;
 }
-
