@@ -35,13 +35,22 @@ int producto(int a, int b){
 
 int main(void){
     int resultado;
-    calculadora_t calculadora = CrearCalculadora();
+    calculadora_t calculadora;
+    calculadora = CrearCalculadora();
 
     AgregarOperacion(calculadora, '+', suma);
     AgregarOperacion(calculadora, '-', resta);
     AgregarOperacion(calculadora, '*', producto);
 
     resultado = Calcular(calculadora, "2*4");
+    printf("Resultado %i\r\n", resultado);
+
+
+    resultado = Calcular(calculadora, "2-4");
+    printf("Resultado %i\r\n", resultado);
+
+
+    resultado = Calcular(calculadora, "2+4");
     printf("Resultado %i\r\n", resultado);
 
     return 0;

@@ -31,7 +31,7 @@ operacion_t BuscarOperacion(calculadora_t calculadora, char operador);
 /************************************* FUNCTION DEFINES *******************************************/
 operacion_t BuscarOperacion(calculadora_t calculadora, char operador) {
     operacion_t result = NULL;
-    for(operacion_t actual = calculadora->operaciones; actual->siguiente != NULL; actual = actual->siguiente){
+    for(operacion_t actual = calculadora->operaciones; actual != NULL; actual = actual->siguiente){
         if(actual->operador == operador){
             result = actual;
             break;
