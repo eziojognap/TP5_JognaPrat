@@ -21,18 +21,34 @@ int resta(int a, int b);
 int producto(int a, int b);
 
 /************************************* FUNCTION DEFINES *******************************************/
+/// @brief suma a + b
+/// @param a
+/// @param b
+/// @return
 int suma(int a, int b){
     return a + b;
 }
 
+/// @brief resta a - b
+/// @param a
+/// @param b
+/// @return
 int resta(int a, int b){
     return a - b;
 }
 
+/// @brief producto a * b
+/// @param a
+/// @param b
+/// @return
 int producto(int a, int b){
     return a * b;
 }
 
+/// @brief cociente entre a y b
+/// @param a
+/// @param b
+/// @return
 int cociente(int a, int b){
     return a / b;
 }
