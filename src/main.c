@@ -33,6 +33,10 @@ int producto(int a, int b){
     return a * b;
 }
 
+int cociente(int a, int b){
+    return a / b;
+}
+
 int main(void){
     int resultado;
     calculadora_t calculadora;
@@ -41,6 +45,7 @@ int main(void){
     AgregarOperacion(calculadora, '+', suma);
     AgregarOperacion(calculadora, '-', resta);
     AgregarOperacion(calculadora, '*', producto);
+    AgregarOperacion(calculadora, '/', cociente);
 
     resultado = Calcular(calculadora, "2*4");
     printf("Resultado %i\r\n", resultado);
@@ -51,6 +56,10 @@ int main(void){
 
 
     resultado = Calcular(calculadora, "2+4");
+    printf("Resultado %i\r\n", resultado);
+    
+    
+    resultado = Calcular(calculadora, "8/4");
     printf("Resultado %i\r\n", resultado);
 
     return 0;
